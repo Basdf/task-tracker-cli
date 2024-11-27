@@ -1,0 +1,66 @@
+run:
+  timeout: "20m"
+  tests: false
+  allow-parallel-runners: false
+  go: "1.23"
+
+linters:
+  enable:
+    - errcheck
+    - gosimple
+    - govet
+    - ineffassign
+    - staticcheck
+    - unused
+
+    - unparam
+    - asciicheck
+    - bodyclose
+    - gocyclo
+    - decorder
+    - dupword
+    - errchkjson
+    - errname
+    - errorlint
+    - goconst
+    - gocritic
+    - gofmt
+    - mnd
+    - gosec
+    - revive
+    - gci
+    - unconvert
+    - reassign
+
+linters-settings:
+  gosec:
+    excludes:
+      - G115
+      - G407
+
+  gocyclo:
+    min-complexity: 20
+
+  unused:
+    field-writes-are-uses: false
+    post-statements-are-reads: false
+    exported-is-used: true
+    exported-fields-are-used: false
+    parameters-are-used: true
+    local-variables-are-used: false
+    generated-is-used: true
+
+  gci:
+    sections:
+      - standard # Standard section: captures all standard packages.
+      - default # Default section: contains all imports that could not be matched to another section type.
+      - prefix(github.com/basdf/tast-tracker-cli) # Custom section: groups all imports with the specified Prefix.
+      - blank # Blank section: contains all blank imports. This section is not present unless explicitly enabled.
+      - dot # Dot section: contains all dot imports. This section is not present unless explicitly enabled.
+      - alias # Alias section: contains all alias imports. This section is not present unless explicitly enabled.
+      - localmodule # Local module section: contains all local packages. This section is not present unless explicitly enabled.
+    custom-order: true
+
+issues:
+  exclude-dirs:
+    - "app/tests"

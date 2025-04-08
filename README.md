@@ -1,4 +1,7 @@
 
+# Task Tracker
+Sample solution for the [task-tracker](https://roadmap.sh/projects/task-tracker) challenge from [roadmap.sh](https://roadmap.sh/).
+
 # Task Tracker CLI
 
 Task Tracker is a simple yet powerful command-line interface (CLI) application for managing and tracking your tasks. It allows you to keep track of what you need to do, what you're currently working on, and what you've already completed.
@@ -17,6 +20,30 @@ Task Tracker is a simple yet powerful command-line interface (CLI) application f
 - No external dependencies required
 - Uses only standard Go packages
 - Data is stored locally in a JSON file
+
+## How to Run
+
+Follow these steps to get the Task Tracker CLI up and running on your local machine:
+
+1. Clone the repository:
+```bash
+git clone https://github.com/Basdf/task-tracker-cli.git
+cd task-tracker-cli
+```
+
+2. Build the application:
+```bash
+go build -o task-cli
+```
+
+3. Start using the application:
+```bash
+# On Windows
+.\task-cli help
+
+# On Linux/macOS
+./task-cli help
+```
 
 ## Data Structure
 

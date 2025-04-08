@@ -34,6 +34,11 @@ Each task contains the following properties:
 
 ## Available Commands
 
+Each command can be used in three different ways:
+1. Using full flags
+2. Using short flags
+3. Direct usage without flags
+
 ### Task Management
 
 ```bash
@@ -41,35 +46,61 @@ Each task contains the following properties:
 go build -o task-cli
 
 # Add a new task
-./task-cli add "Buy groceries"
+task-cli add -desc "Buy groceries"      # Using full flag
+task-cli add -d "Buy groceries"         # Using short flag
+task-cli add "Buy groceries"            # Direct usage
 
 # Update an existing task
-./task-cli update 1 "Buy groceries and cook dinner"
+task-cli update -id 1 -desc "Buy groceries"      # Using full flags
+task-cli update -i 1 -d "Buy groceries"         # Using short flags
+task-cli update 1 "Buy groceries"               # Direct usage
 
 # Delete a task
-./task-cli delete 1
+task-cli delete -id 1      # Using full flag
+task-cli delete -i 1       # Using short flag
+task-cli delete 1          # Direct usage
 ```
 
 ### Status Management
 
 ```bash
 # Mark a task as in progress
-task-cli mark-in-progress 1
+task-cli mark-in-progress -id 1      # Using full flag
+task-cli mark-in-progress -i 1       # Using short flag
+task-cli mark-in-progress 1          # Direct usage
 
 # Mark a task as done
-task-cli mark-done 1
+task-cli mark-done -id 1      # Using full flag
+task-cli mark-done -i 1       # Using short flag
+task-cli mark-done 1          # Direct usage
 ```
 
 ### Task Listing
 
 ```bash
 # List all tasks
-task-cli list
+task-cli list                  # Show all tasks
 
 # List tasks by status
-task-cli list done        # Completed tasks
-task-cli list todo        # Pending tasks
-task-cli list in-progress # Tasks in progress
+task-cli list -status done     # Using full flag
+task-cli list -s done          # Using short flag
+task-cli list done             # Direct usage
+
+# More status examples
+task-cli list todo             # List pending tasks
+task-cli list in-progress      # List tasks in progress
+```
+
+### Help Command
+
+```bash
+# Display general help
+task-cli help
+
+# Get help for a specific command
+task-cli help -flag add          # Using full flag
+task-cli help -f add            # Using short flag
+task-cli help add               # Direct usage
 ```
 
 ## Storage
